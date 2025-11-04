@@ -9,3 +9,6 @@ EXPOSE 80
 
 # Start NGINX automatically when the container runs
 CMD ["nginx", "-g", "daemon off;"]
+
+# Adding the variables to get the DEPLOY_DATE and BUILD_ID
+COPY index.html /$MY_PATH/index.html
