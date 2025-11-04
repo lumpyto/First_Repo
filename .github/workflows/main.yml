@@ -26,3 +26,14 @@ jobs:
       - name: Push Docker image
         run: |
           docker push lumpyto/ci-cd:second_image
+
+      - name: Inject build variables
+        run: |
+          echo "BUILD_ID=${{ github.run_number }}" >> $GITHUB_ENV
+          echo "DEPLOY_DATE=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
+      - name: Replace placeholders in HTML
+        run: |
+          mkdir -p dist
+          envsubst '${BUILD_ID} ${DEPLOY_DATE}' < index.html > dist/index.html
+          cp dist/index.html index.html
