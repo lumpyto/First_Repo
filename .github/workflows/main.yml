@@ -17,7 +17,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: lumpyto
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
         run: |
