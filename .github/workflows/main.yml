@@ -21,11 +21,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t lumpyto/ci-cd:second_image .
+          docker build -t lumpyto/ci-cd:latest .
 
       - name: Push Docker image
         run: |
-          docker push lumpyto/ci-cd:second_image
+          docker push lumpyto/ci-cd:latest
 
       - name: Inject build variables
         run: |
